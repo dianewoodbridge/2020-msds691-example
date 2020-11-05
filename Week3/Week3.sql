@@ -261,7 +261,7 @@ FROM
 		FROM sailors
 		LEFT JOIN
 		(
-			SELECT boats.bid, boats.color, reserves.sid, reserves.day
+			SELECT boats.bid, boats.color, reserves.sid
 			FROM boats
 			JOIN reserves
 			ON boats.bid = reserves.bid
@@ -278,7 +278,7 @@ LEFT JOIN
 	FROM sailors
 	LEFT JOIN
 	(
-		SELECT boats.bid, boats.color, reserves.sid, reserves.day
+		SELECT boats.bid, boats.color, reserves.sid
 		FROM boats
 		JOIN reserves
 		ON boats.bid = reserves.bid
@@ -344,3 +344,5 @@ FROM reserves
 GROUP BY cohort
 ) AS cohort_unique_user
 ON cohort_monthly_count.cohort = cohort_unique_user.cohort;
+
+
