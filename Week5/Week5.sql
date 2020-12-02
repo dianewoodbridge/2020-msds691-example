@@ -106,8 +106,8 @@ ORDER BY plaza_id, hr;
 SELECT CORR(ez_diff, cash_diff)
 FROM
 (
-SELECT plaza_id, date, hr, vehicles_ez, ABS(LAG(vehicles_ez) OVER (PARTITION BY plaza_id ORDER BY date, hr) - vehicles_ez) AS ez_diff,
- vehicles_cash, ABS(LAG(vehicles_cash) OVER (PARTITION BY plaza_id ORDER BY date, hr) - vehicles_cash) AS cash_diff
+SELECT plaza_id, date, hr, vehicle_ez, ABS(LAG(vehicle_ez) OVER (PARTITION BY plaza_id ORDER BY date, hr) - vehicle_ez) AS ez_diff,
+ vehicle_cash, ABS(LAG(vehicle_cash) OVER (PARTITION BY plaza_id ORDER BY date, hr) - vehicle_cash) AS cash_diff
 FROM mta
 ) AS diff
 
